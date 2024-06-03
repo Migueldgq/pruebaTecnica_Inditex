@@ -1,3 +1,5 @@
+"use client";
+
 const PodcastCard = ({ title, author, imageUrl, altText }) => {
   const isLongTitle = title.length > 20;
   return (
@@ -12,7 +14,6 @@ const PodcastCard = ({ title, author, imageUrl, altText }) => {
           className={`text-black text-sm text-center font-semibold min-w-0 max-w-60 ${
             isLongTitle ? "truncate" : ""
           }`}
-           
         >
           {title}
         </h2>

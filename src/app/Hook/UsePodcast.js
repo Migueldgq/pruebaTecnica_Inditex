@@ -1,8 +1,11 @@
+"use client";
+
 const { useState, useEffect } = require("react");
 
 const usePodcast = () => {
   const [podcasts, setPodcasts] = useState([]);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchPodcasts = async () => {
@@ -18,15 +21,17 @@ const usePodcast = () => {
         const data = await podcastsData.json();
 
         setPodcasts(data);
-        
       } catch (error) {
         setError(error.message);
+      } finally {
+        setIsLoading(false);
+        console.log("setLoading en el hook", isLoading);
       }
     };
     fetchPodcasts();
   }, []);
 
-  return { podcasts, error };
+  return { podcasts, error, isLoading };
 };
 
 export default usePodcast;
