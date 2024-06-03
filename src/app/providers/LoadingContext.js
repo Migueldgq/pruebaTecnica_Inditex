@@ -14,7 +14,6 @@ export const LoadingProvider = ({ children }) => {
     setIsLoading(initialIsLoading);
   }, [initialIsLoading]);
 
-  console.log("isLoading en el proveedor", isLoading);
 
   return (
     <LoadingContext.Provider value={{ isLoading, setIsLoading }}>

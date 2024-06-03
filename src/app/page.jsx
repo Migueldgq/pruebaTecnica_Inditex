@@ -28,7 +28,7 @@ export default function Home() {
   }, [searchValue, podcasts]);
 
 
-  console.log("isLoading en mainpage", isLoading);
+ 
 
   // if (!podcasts || !podcasts.feed) {
   //   return <div>No se encontraron resultados</div>;

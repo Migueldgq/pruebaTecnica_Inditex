@@ -10,15 +10,6 @@ const PodcastDetail = ({ params }) => {
 
   const { podcastDetails } = usePodcastDetails(podcastId);
 
-  //console.log(podcastDetails.results);
-
-  //const filteredPodcastDetails = podcastDetails.slice(1);
-
-  const filteredPodcastDetails =
-    podcastDetails && podcastDetails.results
-      ? podcastDetails.results.slice(1)
-      : [];
-
   const { podcasts } = usePodcast();
 
   if (!podcasts || !podcasts.feed) {
@@ -27,7 +18,7 @@ const PodcastDetail = ({ params }) => {
 
   const entrys = podcasts.feed.entry;
 
-  console.log(entrys);
+  
 
   const filteredPodcastsById = entrys.filter(
     (entry) => entry.id.attributes["im:id"] === podcastId
@@ -38,9 +29,9 @@ const PodcastDetail = ({ params }) => {
   }
 
   const filteredPodcast = filteredPodcastsById[0];
-  console.log("Podcast filtrado", filteredPodcast);
+  
 
-  console.log("Total", podcastDetails.resultCount);
+  
 
   return (
     <div className="h-full w-full">
@@ -55,7 +46,6 @@ const PodcastDetail = ({ params }) => {
         </aside>
 
         <section className="w-[80%] flex flex-col pb-10">
-          
           <article className="flex items-center justify-center">
             <EpisodesTablet data={podcastDetails} />
           </article>

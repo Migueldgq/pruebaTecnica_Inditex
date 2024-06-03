@@ -5,15 +5,15 @@ import { useContext, useEffect } from "react";
 
 const EpisodesTablet = ({ data }) => {
   const { isLoading, setIsLoading } = useContext(LoadingContext);
+  
 
   const episodes = data;
   const filteredResults =
     episodes && episodes.results ? episodes.results.slice(1) : [];
 
-  console.log("filtrado", filteredResults);
+  
 
-
-//Este condicional no logré modificarlo para que mientras cargue la data el isLoading sea true y a la vez si al cargar la data no tiene episodios pues sea false
+  //Este condicional no logré modificarlo para que mientras cargue la data el isLoading sea true y a la vez si al cargar la data no tiene episodios pues sea false
 
   useEffect(() => {
     if (filteredResults.length === 0) {
@@ -74,6 +74,8 @@ const EpisodesTablet = ({ data }) => {
                   title={episode.trackName}
                   date={formatDate(episode.releaseDate)}
                   duration={formatDuration(episode.trackTimeMillis)}
+                  episodeId={episode.trackId}
+                  podcastId={episode.collectionId}
                 />
               ))}
             </tbody>

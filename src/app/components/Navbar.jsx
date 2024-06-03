@@ -8,8 +8,7 @@ import Link from "next/link";
 const Navbar = () => {
   const { isLoading } = useContext(LoadingContext);
   //const { podcasts, isLoading } = usePodcast();
-  console.log("isLoading en el navbar", isLoading);
-
+  
   return (
     <header className="">
       <div className="flex flex-row items-center justify-between px-6 pt-2">
@@ -34,7 +33,6 @@ const Navbar = () => {
                 fill="currentFill"
               />
             </svg>
-            <span className="sr-only">Loading...</span>
           </div>
         )}
       </div>
